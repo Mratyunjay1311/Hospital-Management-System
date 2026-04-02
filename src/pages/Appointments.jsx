@@ -37,7 +37,7 @@ function Appointment() {
   return(
     <>
     <AppointmentForm patients={patients} addAppointment={addAppointment}
-    
+    appointments={appointments}
     />
 
     <AppointmentList appointments={appointments} deleteAppointment={deleteAppointment}/>

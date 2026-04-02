@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AppointmentForm({patients,addAppointment}){
+function AppointmentForm({patients,addAppointment,appointments}){
 
     const [selectedPatient,setSelectedPatient] = useState('')
     const [date,setDate] = useState('')
@@ -18,6 +18,21 @@ const patient = patients.find(p=>p.id==selectedPatient)
       date,
       time
     };
+
+    if (!selectedPatient || !date || !time) {
+  alert("Please fill all fields");
+  return;
+}
+
+   const isConflict = appointments.some((a)=>a.date === date && a.time == time)
+
+   if(isConflict){
+    alert("Slot already booked")
+      setDate("");
+    setTime("");
+
+    return
+   }
 
      addAppointment(newAppointment);
 
