@@ -25,7 +25,7 @@ const patient = patients.find(p=>p.id==selectedPatient)
 }
 
    const isConflict = appointments.some((a)=>a.date === date && a.time == time)
-
+ 
    if(isConflict){
     alert("Slot already booked")
       setDate("");
