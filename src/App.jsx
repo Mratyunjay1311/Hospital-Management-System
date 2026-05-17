@@ -21,6 +21,7 @@ import ProtectedRoute from "./components/shared/ProtectedRoute";
 import { Loader2 } from "lucide-react";
 
 // Auth Pages (Public) - NOT lazy loaded for immediate paint
+import LandingPage from "./pages/LandingPage";
 import LoginPage from "./features/auth/LoginPage";
 import RegisterPage from "./features/auth/RegisterPage";
 
@@ -88,11 +89,12 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           {/* ── Public Routes ── */}
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
 
           {/* ── Protected Routes ── */}
-          <Route path="/" element={<ProtectedRoute><DashboardLayout><Suspense fallback={<PageLoader />}><AnimatedPage><Dashboard /></AnimatedPage></Suspense></DashboardLayout></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout><Suspense fallback={<PageLoader />}><AnimatedPage><Dashboard /></AnimatedPage></Suspense></DashboardLayout></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><DashboardLayout><Suspense fallback={<PageLoader />}><AnimatedPage><Profile /></AnimatedPage></Suspense></DashboardLayout></ProtectedRoute>} />
           
           <Route path="/patients" element={<ProtectedRoute roles={["admin", "doctor", "receptionist"]}><DashboardLayout><Suspense fallback={<PageLoader />}><AnimatedPage><Patients /></AnimatedPage></Suspense></DashboardLayout></ProtectedRoute>} />
@@ -110,7 +112,7 @@ function App() {
           <Route path="/ambulance" element={<ProtectedRoute><DashboardLayout><Suspense fallback={<PageLoader />}><AnimatedPage><Ambulance /></AnimatedPage></Suspense></DashboardLayout></ProtectedRoute>} />
           <Route path="/video" element={<ProtectedRoute><DashboardLayout><Suspense fallback={<PageLoader />}><AnimatedPage><VideoConsultation /></AnimatedPage></Suspense></DashboardLayout></ProtectedRoute>} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </AnimatePresence>
     </>

@@ -33,7 +33,7 @@ import { useState } from "react";
 
 // Navigation items with role-based visibility
 const navItems = [
-  { path: "/", labelKey: "dashboard", icon: LayoutDashboard, roles: ["admin", "doctor", "receptionist"] },
+  { path: "/dashboard", labelKey: "dashboard", icon: LayoutDashboard, roles: ["admin", "doctor", "receptionist"] },
   { path: "/patients", labelKey: "patients", icon: Users, roles: ["admin", "doctor", "receptionist"] },
   { path: "/doctors", labelKey: "doctors", icon: UserCog, roles: ["admin", "receptionist", "patient"] },
   { path: "/appointments", labelKey: "appointments", icon: CalendarCheck, roles: ["admin", "doctor", "receptionist", "patient"] },

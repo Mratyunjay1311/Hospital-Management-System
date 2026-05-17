@@ -50,7 +50,7 @@ const RegisterPage = () => {
       const { confirmPassword, ...data } = formData;
       await registerUser(data);
       toast.success("Account created successfully! 🎉");
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       const message = error.response?.data?.message || "Registration failed.";
       toast.error(message);

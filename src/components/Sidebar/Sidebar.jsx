@@ -7,7 +7,7 @@ function Sidebar() {
 
         <li>
           <NavLink 
-            to="/" 
+            to="/dashboard" 
             className={({ isActive }) =>
               isActive 
                 ? "block bg-blue-600 px-3 py-2 rounded text-white" 
